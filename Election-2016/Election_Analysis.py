@@ -56,8 +56,8 @@ for state_name in Data.state:
 Advantage_score = pd.DataFrame(sorted(d.items(),key=lambda x:x[1]))
 Advantage_score.columns = ['state','adv_score']
 
-Demo_Adv = Ave_vote_Demo[Ave_vote_Demo.state.isin(Advantage_score.head(10).state)]
-Repu_Adv = Ave_vote_Repu[Ave_vote_Repu.state.isin(Advantage_score.tail(10).state)]
+Demo_Adv = Ave_vote_Demo[Ave_vote_Demo.state.isin(Advantage_score.tail(10).state)]
+Repu_Adv = Ave_vote_Repu[Ave_vote_Repu.state.isin(Advantage_score.head(10).state)]
 
 #Plot of ave_vote_rate for different candidate among the top 10 advantage state
 sns.factorplot(x="state", y="ave_vote_rate", hue="candidate",data=Demo_Adv, kind="bar")
